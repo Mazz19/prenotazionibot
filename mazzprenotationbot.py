@@ -19,7 +19,7 @@ def google_calendar_auth():
     # Se non ci sono credenziali valide, chiediamo all'utente di accedere.
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
+            creds.refresh(Request()) # type: ignore
         else:
             flow = InstalledAppFlow.from_client_secrets_file(
                 'credentials.json', SCOPES)
