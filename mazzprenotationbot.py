@@ -20,7 +20,7 @@ def handle_message(update: Update, context: CallbackContext) -> None:
 
 def main() -> None:
     # Inserisci qui il tuo token
-    updater = Updater("AAHBeq4X1qohs3jfHTXZsQRr2FpnItR1_dE", use_context=True)
+    updater = Updater(AAHBeq4X1qohs3jfHTXZsQRr2FpnItR1_dE)
 
     dispatcher = updater.dispatcher
 
