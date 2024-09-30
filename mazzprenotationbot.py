@@ -1,6 +1,8 @@
 from telegram import Update, ForceReply
 from telegram.ext import Updater, CommandHandler, MessageHandler, filters, CallbackContext
 
+TOKEN="7581279220:AAHBeq4X1qohs3jfHTXZsQRr2FpnItR1_dE"
+
 # Funzione di avvio
 def start(update: Update, context: CallbackContext) -> None:
     user = update.effective_user
@@ -20,7 +22,7 @@ def handle_message(update: Update, context: CallbackContext) -> None:
 
 def main() -> None:
     # Inserisci qui il tuo token
-    updater = Updater(AAHBeq4X1qohs3jfHTXZsQRr2FpnItR1_dE)
+    updater = Updater(TOKEN, use_context=True)
 
     dispatcher = updater.dispatcher
 
