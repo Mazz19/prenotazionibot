@@ -39,24 +39,24 @@ db.serialize(() => {
 // Visualizzare le pagine HTML
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/views/index.html');
+    res.sendFile(__dirname + '/index.html');
 });
 
 app.get('/register', (req, res) => {
-    res.sendFile(__dirname + '/views/register.html');
+    res.sendFile(__dirname + '/register.html');
 });
 
 app.get('/login', (req, res) => {
-    res.sendFile(__dirname + '/views/login.html');
+    res.sendFile(__dirname + '/login.html');
 });
 
 app.get('/forgot-password', (req, res) => {
-    res.sendFile(__dirname + '/views/forgot-password.html');
+    res.sendFile(__dirname + '/forgot-password.html');
 });
 
 app.get('/appointment', (req, res) => {
     if (req.cookies.user) {
-        res.sendFile(__dirname + '/views/appointment.html');
+        res.sendFile(__dirname + '/appointment.html');
     } else {
         res.redirect('/login');
     }
