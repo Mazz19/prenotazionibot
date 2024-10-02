@@ -39,24 +39,24 @@ db.serialize(() => {
 // Visualizzare le pagine HTML
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/prenotazionibot/index.html');
+    res.sendFile('https://mazz19.github.io/prenotazionibot//index.html');
 });
 
 app.get('/register', (req, res) => {
-    res.sendFile(__dirname + '/prenotazionibot/register.html');
+    res.sendFile('https://mazz19.github.io/prenotazionibot//register.html');
 });
 
 app.get('/login', (req, res) => {
-    res.sendFile(__dirname + '/prenotazionibot/login.html');
+    res.sendFile('https://mazz19.github.io/prenotazionibot//login.html');
 });
 
 app.get('/forgot-password', (req, res) => {
-    res.sendFile(__dirname + '/prenotazionibot/forgot-password.html');
+    res.sendFile('https://mazz19.github.io/prenotazionibot//forgot-password.html');
 });
 
 app.get('/appointment', (req, res) => {
     if (req.cookies.user) {
-        res.sendFile(__dirname + '/prenotazionibot/appointment.html');
+        res.sendFile('https://mazz19.github.io/prenotazionibot//appointment.html');
     } else {
         res.redirect('/login');
     }
