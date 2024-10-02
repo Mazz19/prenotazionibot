@@ -18,7 +18,7 @@
     <div id='calendar'></div>
 
     <!-- Pulsante di logout -->
-    <form action="/logout" method="POST" style="text-align: center; margin-top: 20px;">
+    <form action="https://mazz19.github.io/prenotazionibot/logout" method="POST" style="text-align: center; margin-top: 20px;">
         <button type="submit">Logout</button>
     </form>
 
@@ -29,7 +29,7 @@
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 initialView: 'dayGridMonth',
                 locale: 'it', // Imposta la lingua italiana
-                events: '/api/appointments', // URL per recuperare gli appuntamenti
+                events: 'https://mazz19.github.io/prenotazionibot/api/appointments', // URL per recuperare gli appuntamenti
                 headerToolbar: {
                     left: 'prev,next today',
                     center: 'title',

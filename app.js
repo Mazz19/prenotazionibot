@@ -158,7 +158,7 @@ app.get('https://mazz19.github.io/prenotazionibot/calendar', (req, res) => {
 
 
 // Gestione password dimenticata
-app.post('/forgot-password', (req, res) => {
+app.post('https://mazz19.github.io/prenotazionibot/forgot-password', (req, res) => {
     const { email } = req.body;
     db.get(`SELECT * FROM users WHERE email = ?`, [email], (err, user) => {
         if (err || !user) {
