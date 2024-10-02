@@ -38,32 +38,32 @@ db.serialize(() => {
 
 // Visualizzare le pagine HTML
 
-app.get('/', (req, res) => {
-    res.sendFile('https://mazz19.github.io/prenotazionibot//index.html');
+app.get('https://mazz19.github.io/prenotazionibot/', (req, res) => {
+    res.sendFile('https://mazz19.github.io/prenotazionibot/index.html');
 });
 
-app.get('/register', (req, res) => {
-    res.sendFile('https://mazz19.github.io/prenotazionibot//register.html');
+app.get('https://mazz19.github.io/prenotazionibot/register', (req, res) => {
+    res.sendFile('https://mazz19.github.io/prenotazionibot/register.html');
 });
 
-app.get('/login', (req, res) => {
-    res.sendFile('https://mazz19.github.io/prenotazionibot//login.html');
+app.get('https://mazz19.github.io/prenotazionibot/login', (req, res) => {
+    res.sendFile('https://mazz19.github.io/prenotazionibot/login.html');
 });
 
-app.get('/forgot-password', (req, res) => {
-    res.sendFile('https://mazz19.github.io/prenotazionibot//forgot-password.html');
+app.get('https://mazz19.github.io/prenotazionibot/forgot-password', (req, res) => {
+    res.sendFile('https://mazz19.github.io/prenotazionibot/forgot-password.html');
 });
 
-app.get('/appointment', (req, res) => {
+app.get('https://mazz19.github.io/prenotazionibot/appointment', (req, res) => {
     if (req.cookies.user) {
-        res.sendFile('https://mazz19.github.io/prenotazionibot//appointment.html');
+        res.sendFile('https://mazz19.github.io/prenotazionibot/appointment.html');
     } else {
         res.redirect('/login');
     }
 });
 
 // Registrazione
-app.post('/register', (req, res) => {
+app.post('https://mazz19.github.io/prenotazionibot/register', (req, res) => {
     const { username, email, password, confirmPassword } = req.body;
     if (password !== confirmPassword) {
         return res.send('Le password non corrispondono.');
@@ -78,7 +78,7 @@ app.post('/register', (req, res) => {
 });
 
 // Login
-app.post('/login', (req, res) => {
+app.post('https://mazz19.github.io/prenotazionibot/login', (req, res) => {
     const { email, password } = req.body;
     db.get(`SELECT * FROM users WHERE email = ?`, [email], (err, user) => {
         if (err || !user) {
@@ -93,7 +93,7 @@ app.post('/login', (req, res) => {
 });
 
 // Prenotazione appuntamento con data e orario
-app.post('/appointment', (req, res) => {
+app.post('https://mazz19.github.io/prenotazionibot/appointment', (req, res) => {
     const { appointment_date, appointment_time } = req.body;
     const userId = req.cookies.user;
 
@@ -127,7 +127,7 @@ app.post('/appointment', (req, res) => {
 });
 
 // API per ottenere gli appuntamenti dell'utente loggato, con data e orario
-app.get('/api/appointments', (req, res) => {
+app.get('https://mazz19.github.io/prenotazionibot/api/appointments', (req, res) => {
     const userId = req.cookies.user;
     if (!userId) {
         return res.status(401).json({ message: 'Non autenticato' });
@@ -148,7 +148,7 @@ app.get('/api/appointments', (req, res) => {
 });
 
 // Pagina calendario
-app.get('/calendar', (req, res) => {
+app.get('https://mazz19.github.io/prenotazionibot/calendar', (req, res) => {
     if (req.cookies.user) {
         res.sendFile(__dirname + 'https://mazz19.github.io/prenotazionibot/calendar.html');
     } else {
@@ -192,7 +192,7 @@ app.post('/forgot-password', (req, res) => {
 });
 
 // Endpoint per il logout
-app.post('/logout', (req, res) => {
+app.post('https://mazz19.github.io/prenotazionibot/logout', (req, res) => {
     res.clearCookie('user'); // Cancella il cookie di sessione
     res.redirect('https://mazz19.github.io/prenotazionibot/login'); // Reindirizza alla pagina di login
 });
