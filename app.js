@@ -73,7 +73,7 @@ app.post('/register', (req, res) => {
         if (err) {
             return res.send('Errore nella registrazione.');
         }
-        res.redirect('/login');
+        res.redirect('https://mazz19.github.io/prenotazionibot/login');
     });
 });
 
@@ -88,7 +88,7 @@ app.post('/login', (req, res) => {
             return res.send('Email o password non corretti.');
         }
         res.cookie('user', user.id);
-        res.redirect('/appointment');
+        res.redirect('https://mazz19.github.io/prenotazionibot/appointment');
     });
 });
 
@@ -150,9 +150,9 @@ app.get('/api/appointments', (req, res) => {
 // Pagina calendario
 app.get('/calendar', (req, res) => {
     if (req.cookies.user) {
-        res.sendFile(__dirname + '/views/calendar.html');
+        res.sendFile(__dirname + 'https://mazz19.github.io/prenotazionibot/calendar.html');
     } else {
-        res.redirect('/login');
+        res.redirect('https://mazz19.github.io/prenotazionibot/login');
     }
 });
 
@@ -194,10 +194,10 @@ app.post('/forgot-password', (req, res) => {
 // Endpoint per il logout
 app.post('/logout', (req, res) => {
     res.clearCookie('user'); // Cancella il cookie di sessione
-    res.redirect('/login'); // Reindirizza alla pagina di login
+    res.redirect('https://mazz19.github.io/prenotazionibot/login'); // Reindirizza alla pagina di login
 });
 
 
 app.listen(port, () => {
-    console.log(`Server in ascolto su http://localhost:${port}`);
+    console.log(`Server in ascolto su https://mazz19.github.io/prenotazionibot/:${port}`);
 });
